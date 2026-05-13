@@ -11,9 +11,8 @@ import (
 	"github.com/google/uuid"
 )
 
-const maxMemory = 10 << 20 // 10 MB
-
 func (cfg *apiConfig) handlerUploadThumbnail(w http.ResponseWriter, r *http.Request) {
+	const maxMemory = 10 << 20 // 10 MB
 	videoIDString := r.PathValue("videoID")
 	videoID, err := uuid.Parse(videoIDString)
 	if err != nil {
